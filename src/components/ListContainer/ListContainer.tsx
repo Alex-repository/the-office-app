@@ -4,7 +4,7 @@ import { ICharacter, ICrew, IPropCharacter, typeOrder } from '../../models';
 import { sortByFirstName, sortByLastName } from '../../utilities/utils';
 import ElementPlaceholder from '../ElementPlaceholder/ElementPlaceholder';
 import GridAdd from '../GridAdd/GridAdd';
-import Grid from '../GridCharacter/GridCharacter';
+import GridCharacter from '../GridCharacter/GridCharacter';
 import Pagination from '../Pagination/Pagination';
 import styles from './ListContainer.module.scss';
 
@@ -27,20 +27,20 @@ function ListContainer({ filterBy, orderBy, view }: any) {
         if (dataCharacters && view === "characters") {
             if (!!filterBy) {
                 const filteredList = dataCharacters.find((character: IPropCharacter) => filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase());
-                return filteredList && <Grid character={filteredList} />
+                return filteredList && <GridCharacter character={filteredList} view={view} />
             }
             renderList.push(preparePagination(dataCharacters, pagePosition).map((character: ICharacter) => {
-                return <Grid key={character.id} character={character} />
+                return <GridCharacter key={character.id} character={character} view={view} />
             }));
             renderList.push(<GridAdd view={view} />)
             return renderList
         } else if (dataCrew && view === "crew") {
             if (!!filterBy) {
                 const filteredList = dataCrew.find((character: IPropCharacter) => filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase());
-                return filteredList && <Grid character={filteredList} />
+                return filteredList && <GridCharacter character={filteredList} view={view} />
             }
             renderList.push(preparePagination(dataCrew, pagePosition).map((character: any) => {
-                return <Grid key={character.id} character={character} />
+                return <GridCharacter key={character.id} character={character} view={view} />
             }));
             renderList.push(<GridAdd view={view} />)
             return renderList
