@@ -3,8 +3,7 @@ import { debounce } from '../../utilities/utils';
 import ModalCharacter from '../ModalCharacter/ModalCharacter';
 import styles from './GridCharacter.module.scss';
 
-
-function GridCharacter({ character }: any) {
+function GridCharacter({ character, view }: any) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [elementSize, setElementSize] = useState({ height: 0, width: 0 });
     const gridRef = useRef<any>(null);
@@ -44,7 +43,7 @@ function GridCharacter({ character }: any) {
                 <button
                     className={styles.gridCharacater__button}
                     onClick={() => handlerModal()}>
-                    See quotes
+                    See {view === "characters" ? "quotes" : "information"}
                 </button>
             </div>
             {isModalOpen && <ModalCharacter onModalClose={setIsModalOpen} character={character} />}
