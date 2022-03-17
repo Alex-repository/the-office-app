@@ -20,7 +20,11 @@ export function DataContextProvider({ children }: any) {
             const respQuote = await axios.get('https://officeapi.dev/api/quotes/');
             setDataQuotes(createAddaptedQuote(respQuote.data.data));
             setDataCharacters(createAddaptedCharacter(resp.data.data));
-            setCharactersNames(resp.data.data.map(({ firstname }: any) => firstname).push(resp.data.data.map(({ lastname }: any) => lastname)));
+            let firstNameList = resp.data.data.map(({ firstname }: any) => firstname)
+            // TODO: filter by last name
+            // let lastNameList = resp.data.data.map(({ lastname }: any) => lastname)
+            // setCharactersNames([...firstNameList, ...lastNameList]);
+            setCharactersNames(firstNameList);
         } catch (err) {
             console.error('Error fetching data: ', err);
         }
