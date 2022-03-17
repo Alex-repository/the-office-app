@@ -14,19 +14,13 @@ export function DataContextProvider({ children }: any) {
         sendGetRequest();
     }, [])
 
-    useEffect(() => {
-        // console.log('dataCharacter', dataCharacters)
-        // console.log('dataQuotes', dataQuotes)
-        console.log('dataCrew', dataCrew)
-    }, [dataCharacters, dataCrew, dataQuotes]);
-
     const sendGetRequest = async () => {
         try {
             const resp = await axios.get('https://officeapi.dev/api/characters/');
             const respQuote = await axios.get('https://officeapi.dev/api/quotes/');
             setDataQuotes(createAddaptedQuote(respQuote.data.data));
             setDataCharacters(createAddaptedCharacter(resp.data.data));
-            setCharactersNames(resp.data.data.map(({ firstname }: any) => firstname));
+            setCharactersNames(resp.data.data.map(({ firstname }: any) => firstname).push(resp.data.data.map(({ lastname }: any) => lastname)));
         } catch (err) {
             console.error('Error fetching data: ', err);
         }
@@ -37,7 +31,6 @@ export function DataContextProvider({ children }: any) {
             const response = await axios.get('https://officeapi.dev/api/crew/');
             setDataCrew(createAddaptedCrew(response.data.data));
             setCharactersNames(response.data.data.map(({ name }: any) => name.split(" ")[0]));
-            // return response;
         } catch (error) {
             console.error('Error fetching crew: ', error);
         }

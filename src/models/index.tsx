@@ -49,11 +49,11 @@ export interface IHeader {
 }
 
 export interface ISearch {
-    onSearchOrder: (arg: string) => void;
+    onSearchOrder: (arg: any) => any;
 }
 
 export interface ISearchContainer {
-    children: JSX.Element
+    children: JSX.Element[]
 }
 
 export interface IPagination {
@@ -63,7 +63,7 @@ export interface IPagination {
 
 export interface IModalAdd {
     onModalClose: (arg: boolean) => void;
-    addCharacter: typeView;
+    addCharacter: boolean;
 }
 
 export interface IGridCharacter {
