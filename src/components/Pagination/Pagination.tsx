@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-
+import { useState } from 'react';
+import { IPagination } from '../../models';
 import styles from './Pagination.module.scss';
 
-function Pagination({ paginationLength, onPageChange }: any) {
+const Pagination = ({ paginationLength, onPageChange }: IPagination) => {
     const [indexPosition, setIndexPosition] = useState(1);
 
     const paginationHandler = (position: number) => {
@@ -46,7 +46,7 @@ function Pagination({ paginationLength, onPageChange }: any) {
         let startIndex = (currentPage - 1) * pageSize;
         let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
         let pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
-//add here return of max page size based of array lenght
+        //add here return of max page size based of array lenght
         return {
             totalItems: totalItems,
             currentPage: currentPage,

@@ -34,6 +34,43 @@ export interface IQuote {
     quote: string;
 }
 
+export interface IGridAdd {
+    view: typeView;
+}
+
+export interface IListContainer {
+    filterBy: string;
+    orderBy: typeOrder;
+    view: typeView;
+}
+
+export interface IHeader {
+    onChangeView: (arg: typeView) => void;
+}
+
+export interface ISearch {
+    onSearchOrder: (arg: string) => void;
+}
+
+export interface ISearchContainer {
+    children: JSX.Element
+}
+
+export interface IPagination {
+    onPageChange: (arg: number) => void;
+    paginationLength: number;
+}
+
+export interface IModalAdd {
+    onModalClose: (arg: boolean) => void;
+    addCharacter: typeView;
+}
+
+export interface IGridCharacter {
+    character: any;
+    view: string;
+}
+
 export type typeOrder = 'firstName' | 'lastName';
 
 export type typeView = 'characters' | 'crew';

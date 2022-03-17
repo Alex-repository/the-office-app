@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import DataContext from '../../contexts/dataContext';
-import { typeView } from '../../models';
+import { IHeader, typeView } from '../../models';
 import styles from './Header.module.scss';
 
-function Header({ onChangeView }: any) {
+function Header({ onChangeView }: IHeader) {
     const { sendGetCrew, sendGetCharacters } = useContext(DataContext);
     const [viewOption, setViewOption] = useState<typeView>("characters");
 

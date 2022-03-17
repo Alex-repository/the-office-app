@@ -1,6 +1,6 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import DataContext from '../../contexts/dataContext';
-import { ICharacter, ICrew, IPropCharacter, typeOrder } from '../../models';
+import { ICharacter, IListContainer, IPropCharacter } from '../../models';
 import { sortByFirstName, sortByLastName } from '../../utilities/utils';
 import ElementPlaceholder from '../ElementPlaceholder/ElementPlaceholder';
 import GridAdd from '../GridAdd/GridAdd';
@@ -8,7 +8,7 @@ import GridCharacter from '../GridCharacter/GridCharacter';
 import Pagination from '../Pagination/Pagination';
 import styles from './ListContainer.module.scss';
 
-function ListContainer({ filterBy, orderBy, view }: any) {
+function ListContainer({ filterBy, orderBy, view }: IListContainer) {
     const { dataCharacters, dataCrew } = useContext(DataContext);
     const [pagePosition, setPagePosition] = useState({ start: 0, end: 5 });
 
@@ -29,10 +29,10 @@ function ListContainer({ filterBy, orderBy, view }: any) {
                 const filteredList = dataCharacters.find((character: IPropCharacter) => filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase());
                 return filteredList && <GridCharacter character={filteredList} view={view} />
             }
-            renderList.push(preparePagination(dataCharacters, pagePosition).map((character: ICharacter) => {
+            renderList.push(preparePagination(dataCharacters, pagePosition).map((character: any) => {
                 return <GridCharacter key={character.id} character={character} view={view} />
             }));
-            renderList.push(<GridAdd view={view} />)
+            renderList.push(<GridAdd key={'add'} view={view} />)
             return renderList
         } else if (dataCrew && view === "crew") {
             if (!!filterBy) {
@@ -42,11 +42,10 @@ function ListContainer({ filterBy, orderBy, view }: any) {
             renderList.push(preparePagination(dataCrew, pagePosition).map((character: any) => {
                 return <GridCharacter key={character.id} character={character} view={view} />
             }));
-            renderList.push(<GridAdd view={view} />)
+            renderList.push(<GridAdd key={'add'} view={view} />)
             return renderList
         } else {
-            console.log("content placeholder")
-            return Array.apply(null, Array(5)).map(function () { return <ElementPlaceholder /> })
+            return Array.apply(null, Array(5)).map((_, i) => <ElementPlaceholder key={i} />)
         }
     }, [pagePosition, orderBy, dataCharacters, filterBy, dataCrew, view]);
 

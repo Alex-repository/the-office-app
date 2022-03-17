@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
-
+import { ISearchContainer } from '../../models';
 import styles from './SearchContainer.module.scss';
 
-function SearchContainer({ children }: any) {
+function SearchContainer({ children }: ISearchContainer) {
 
     return (
         <div className={styles.searchContainer__container}>

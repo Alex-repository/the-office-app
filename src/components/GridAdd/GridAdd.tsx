@@ -1,12 +1,13 @@
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { IGridAdd } from '../../models';
 import { debounce } from '../../utilities/utils';
 import ModalAdd from '../ModalAdd/ModalAdd';
 import styles from './GridAdd.module.scss';
 
 
-function GridAdd({ view }: any) {
+function GridAdd({ view }: IGridAdd) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-    const [elementSize, setElementSize] = useState({ height: 0, width: 0 });
+    const [elementSize, setElementSize] = useState<{ height: number, width: number }>({ height: 0, width: 0 });
     const gridRef = useRef<any>(null);
 
     useEffect(() => {

@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import DataContext from '../../contexts/dataContext';
+import { IModalAdd } from '../../models';
 import { prepareName, prepareSourceName } from '../../utilities/utils';
 import Modal from '../Modal/Modal';
 import styles from './ModalAdd.module.scss';
 
-function ModalAdd({ onModalClose, addCharacter }: any) {
+const ModalAdd = ({ onModalClose, addCharacter }: IModalAdd) =>{
     const { addMember } = useContext(DataContext);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

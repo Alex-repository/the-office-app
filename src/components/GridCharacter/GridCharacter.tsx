@@ -1,9 +1,10 @@
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { IGridCharacter } from '../../models';
 import { debounce } from '../../utilities/utils';
 import ModalCharacter from '../ModalCharacter/ModalCharacter';
 import styles from './GridCharacter.module.scss';
 
-function GridCharacter({ character, view }: any) {
+function GridCharacter({ character, view }: IGridCharacter) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [elementSize, setElementSize] = useState({ height: 0, width: 0 });
     const gridRef = useRef<any>(null);
@@ -13,7 +14,7 @@ function GridCharacter({ character, view }: any) {
     }, [isModalOpen])
 
     useEffect(() => {
-        setElementSize({ height: gridRef?.current.clientHeight, width: gridRef?.current.clientWidth })
+        setElementSize({ height: gridRef.current.clientHeight, width: gridRef?.current.clientWidth })
     }, [gridRef])
 
     useEffect(() => {

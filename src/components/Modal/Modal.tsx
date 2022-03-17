@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { IModal } from '../../models/index'
 import styles from './Modal.module.scss';
 
