@@ -13,7 +13,6 @@ export const createAddaptedCharacter = (characters: ICharacter[]) => {
             source: prepareSourceName(character.firstname, character.lastname),
             isCreated: false,
             isCrewMember: false,
-            quote: [],
         }
     })
     return formattedCharacters;

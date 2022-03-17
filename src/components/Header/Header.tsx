@@ -4,10 +4,11 @@ import { typeView } from '../../models';
 import styles from './Header.module.scss';
 
 function Header({ onChangeView }: any) {
-    const { sendGetCrew } = useContext(DataContext);
+    const { sendGetCrew, sendGetCharacters } = useContext(DataContext);
     const [viewOption, setViewOption] = useState<typeView>("characters");
 
     const handlerCharacterOption = () => {
+        sendGetCharacters();
         setViewOption("characters");
         onChangeView("characters");
     };

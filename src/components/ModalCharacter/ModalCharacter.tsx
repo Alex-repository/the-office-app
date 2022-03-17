@@ -6,23 +6,27 @@ import styles from './ModalCharacter.module.scss';
 
 function ModalCharacter({ onModalClose, character }: IModalCharacter) {
     const { findCharacterQuote } = useContext(DataContext);
- 
+
     return (
         <Modal onModalClose={onModalClose}>
             <div className={styles.modalCharacter__container}>
                 <div className={styles.modalCharacter__leftPanel}>
                     <>
                         <h4>By {character.name}</h4>
-                        {findCharacterQuote(character.id).sort().map((quote: string, index: number) => {
-                            return <q key={index} className={styles.modalCharacter__quote}>
-                                {quote}
-                            </q>
-                        })}
+                        {character.isCrewMember
+                            ?
+                            <p>Role: {character.role} </p>
+                            :
+                            findCharacterQuote(character.id).sort().map((quote: string, index: number) => {
+                                return <q key={index} className={styles.modalCharacter__quote}>
+                                    {quote}
+                                </q>
+                            })}
                     </>
                 </div>
                 <div
                     className={styles.modalCharacter__rightPanel}
-                    style={{ backgroundImage: !!character?.source ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
+                    style={{ backgroundImage: (!!character?.source && !character.isCrewMember) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
                 >
 
                 </div>

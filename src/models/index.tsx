@@ -5,7 +5,7 @@ export interface IModal {
 
 export interface IModalCharacter {
     onModalClose: (arg: boolean) => void;
-    character: ICharacter;
+    character: IPropCharacter;
 }
 
 export interface ICharacter {
@@ -37,3 +37,5 @@ export interface IQuote {
 export type typeOrder = 'firstName' | 'lastName';
 
 export type typeView = 'characters' | 'crew';
+
+export type IPropCharacter = ICharacter & ICrew;
