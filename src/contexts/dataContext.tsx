@@ -14,6 +14,10 @@ export function DataContextProvider({ children }: any) {
         sendGetRequest();
     }, [])
 
+    useEffect(() => {
+        console.log('dataQuotes', dataQuotes)
+    }, [dataQuotes])
+
     const sendGetRequest = async () => {
         try {
             const resp = await axios.get('https://officeapi.dev/api/characters/');
@@ -47,15 +51,13 @@ export function DataContextProvider({ children }: any) {
         return await sendGetCrew();
     }
 
-    const addMember = (newMember: any, addCharacter: boolean) => {
-
-    }
+    const addMember = (newMember: any, addCharacter: boolean) => addCharacter ? setDataCharacters([...dataCharacters, newMember]) : setDataCrew([...dataCrew, newMember]);
 
     const updateMember = () => {
 
     }
 
-    const addQuote = (quote: IQuote) => setDataQuotes(dataQuotes.push(quote));
+    const addQuote = (quote: IQuote) => setDataQuotes([...dataQuotes, quote]);
 
     const updataQuote = () => {
 

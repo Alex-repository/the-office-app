@@ -26,7 +26,7 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
                 </div>
                 <div
                     className={styles.modalCharacter__rightPanel}
-                    style={{ backgroundImage: (!!character?.source && !character.isCrewMember) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
+                    style={{ backgroundImage: (!character.isCreated && (!character.isCrewMember || !!character?.source)) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
                 >
 
                 </div>

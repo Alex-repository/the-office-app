@@ -2,7 +2,9 @@ import { ICharacter } from "../models";
 
 export const prepareSourceName = (firstName: string, lastName: string): string => `${firstName.toLowerCase()}_${lastName.toLowerCase()}`;
 
-export const prepareName = (firstName: string, lastName: string): string => `${firstName} ${lastName}`;
+export const prepareName = (firstName: string, lastName: string): string => `${formattedUppercaseName(firstName)} ${formattedUppercaseName(lastName)}`;
+
+export const formattedUppercaseName = (value: string): string => value.charAt(0).toUpperCase() + value.slice(1);
 
 export const debounce = (fn: any, delay: any) => {
     let timeout: any = -1;
