@@ -1,0 +1,14 @@
+.searchContainer__container {
+    height         : 50px;
+    width          : 80%;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+
+    @media screen and (max-width: 600px) {
+        // display        : flex;
+        // align-items    : center;
+        // justify-content: center;
+        margin-left: 0;
+    }
+}

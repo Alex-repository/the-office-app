@@ -1,0 +1,32 @@
+.header {
+    &__container {
+        height: 100px;
+        width : 80%;
+
+        display        : flex;
+        justify-content: space-around;
+        align-items    : center;
+        :first-child{
+            border-right: 1px solid black;
+        }
+        :last-child{
+            border-left: 1px solid black;
+        }
+    }
+
+    &__option {
+        font-size: 36px;
+        height          : 50px;
+        width           :100%;
+        border          : none;
+        cursor          : pointer;
+        background-color: transparent;
+        border-bottom: 1px solid black;
+        &-disable {
+            border: none;
+
+            opacity         : .5;
+            cursor          : default;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.container {
+    height         : 70%;
+    min-height     : 750px;
+    width          : 85vw;
+    padding        : 0 15px;
+    display        : flex;
+    align-items    : flex-start;
+    justify-content: space-around;
+    flex-wrap      : wrap;
+}

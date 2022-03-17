@@ -1,0 +1,32 @@
+.pagination {
+    &__container {
+        display      : inline-block;
+        margin-bottom: 1%;
+
+        & a {
+            cursor: pointer;
+            color          : black;
+            float          : left;
+            padding        : 8px 16px;
+            text-decoration: none;
+        }
+        
+        & a.active {
+            background-color: #7d5d3b;
+            color           : white;
+            border-radius   : 5px;
+        }
+        
+        & a.disable {
+            cursor: default;
+            opacity : 0.5;
+        }
+
+        & a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius   : 5px;
+        }
+    }
+
+
+}

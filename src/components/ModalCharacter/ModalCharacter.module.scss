@@ -1,0 +1,51 @@
+.modalCharacter {
+    &__container {
+        height       : 90%;
+        width        : 90%;
+        margin       : 5% auto 5% 5%;
+        overflow     : hidden;
+        display      : flex;
+        border-radius: 0 9px 9px 0;
+    }
+
+    &__leftPanel {
+
+        width             : 60%;
+        overflow-y        : scroll;
+        overflow-x        : hidden;
+        -ms-overflow-style: none;
+        scrollbar-width   : none;
+        display           : flex;
+        flex-direction    : column;
+        height            : 700px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__rightPanel {
+
+        height             : 90%;
+        width              : 40%;
+        background-position: center;
+        background-repeat  : no-repeat;
+        background-size    : cover;
+        border-radius      : 9px;
+        box-shadow         : 12px 10px 10px -12px rgba(0, 0, 0, 0.71);
+        -webkit-box-shadow : 12px 10px 10px -12px rgba(0, 0, 0, 0.71);
+        -moz-box-shadow    : 12px 10px 10px -12px rgba(0, 0, 0, 0.71);
+    }
+
+
+
+    &__quote {
+        padding   : 10px;
+        font-size : 16px;
+        color     : black;
+        z-index   : 1;
+        text-align: center;
+        display   : block;
+        text-align: left;
+    }
+}

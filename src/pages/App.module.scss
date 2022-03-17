@@ -1,0 +1,12 @@
+@import "../styles/breakpoints.scss";
+@import "../styles/variables.scss";
+
+.App__layout {
+  display         : flex;
+  align-items     : center;
+  flex-direction  : column;
+  height          : 100%;
+  width           : 100%;
+  background-color: $gray-background;
+  min-height      : 100vh;
+}

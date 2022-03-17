@@ -1,0 +1,59 @@
+@import "../../styles/mixins.scss";
+
+.gridAdd {
+    &__container {
+        height             : 30%;
+        width              : 30%;
+        margin             : 15px 15px 15px 0;
+        border-radius      : 9px;
+        min-width          : 300px;
+        min-height         : 350px;
+        background-position: center;
+        background-repeat  : no-repeat;
+        background-size    : cover;
+        display            : flex;
+        align-items        : center;
+        justify-content    : flex-end;
+        flex-direction     : column;
+        position           : relative;
+        outline            : none;
+        cursor             : pointer;
+
+        &::after {
+            content          : "";
+            position         : absolute;
+            top              : calc(50% - 80px);
+            right            : calc(50% - 80px);
+            background-image : url("../../../public/assets/add_icon.png");
+            background-repeat: no-repeat;
+            background-size  : cover;
+            opacity          : .5;
+            height           : 160px;
+            width            : 160px;
+        }
+
+        @media screen and (max-width: 600px) {
+            min-width: 280px;
+            margin   : 15px 0;
+        }
+    }
+
+    &__gradient {
+        border-radius: 9px;
+        background   : rgb(255, 255, 255);
+        background   : linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 74%);
+        position     : absolute;
+        top          : 0;
+        right        : 0;
+        opacity      : 0.5;
+    }
+
+    &__name {
+        @include align-center-elements;
+        text-align: center;
+        width     : 100%;
+        font-size : 36px;
+        color     : rgb(255, 255, 255);
+        z-index   : 1;
+    }
+}
