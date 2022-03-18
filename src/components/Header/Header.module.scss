@@ -6,27 +6,38 @@
         display        : flex;
         justify-content: space-around;
         align-items    : center;
-        :first-child{
+
+        :first-child {
             border-right: 1px solid black;
         }
-        :last-child{
+
+        :last-child {
             border-left: 1px solid black;
         }
+
+        // @media screen and (max-width: 777px) {
+        //    flex-direction: column;
+        // }
     }
 
     &__option {
-        font-size: 36px;
+        font-size       : 36px;
         height          : 50px;
-        width           :100%;
+        width           : 100%;
         border          : none;
         cursor          : pointer;
         background-color: transparent;
-        border-bottom: 1px solid black;
+        border-bottom   : 1px solid black;
+
+        @media screen and (max-width: 450px) {
+            font-size: 24px;
+        }
+
         &-disable {
             border: none;
 
-            opacity         : .5;
-            cursor          : default;
+            opacity: .5;
+            cursor : default;
         }
     }
 }

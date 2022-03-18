@@ -63,7 +63,7 @@ export function DataContextProvider({ children }: any) {
 
     }
 
-    const findCharacterQuote = (id: any) => dataQuotes?.map((quote: any) => quote.characterId === id && quote.quote).filter((x: any) => x);
+    const findCharacterQuote = (id: any) => dataQuotes?.map((quote: any) => quote.characterId === id && quote).filter((x: any) => x);
 
     return (
         <DataContext.Provider value={{

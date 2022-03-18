@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IPagination } from '../../models';
+import { scrollToTop } from '../../utilities/utils';
 import styles from './Pagination.module.scss';
 
 const Pagination = ({ paginationLength, onPageChange }: IPagination) => {
@@ -8,6 +9,7 @@ const Pagination = ({ paginationLength, onPageChange }: IPagination) => {
     const paginationHandler = (position: number) => {
         onPageChange(position);
         setIndexPosition(position);
+        scrollToTop();
     }
 
     const generatePagination = (

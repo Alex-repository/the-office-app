@@ -33,7 +33,7 @@ function GridCharacter({ character, view }: IGridCharacter) {
         <>
             <div className={styles.gridCharacater__container}
                 ref={gridRef}
-                style={{ backgroundImage: (!character.isCreated && (!character.isCrewMember || !!character?.source)) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
+                style={{ backgroundImage: (!character.isCreated && !character.isCrewMember) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
             >
                 <div
                     className={styles.gridCharacater__gradient}

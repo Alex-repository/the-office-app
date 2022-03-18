@@ -25,9 +25,18 @@
     }
 
     &__rightPanel {
+        display       : flex;
+        flex-direction: column;
 
-        height             : 90%;
-        width              : 40%;
+        height: 90%;
+        width : 40%;
+
+    }
+
+    &__image {
+        height: 100%;
+        width : 100%;
+
         background-position: center;
         background-repeat  : no-repeat;
         background-size    : cover;
@@ -37,7 +46,32 @@
         -moz-box-shadow    : 12px 10px 10px -12px rgba(0, 0, 0, 0.71);
     }
 
+    &__description {
+        font-size : 16px;
+        color     : rgb(102, 101, 101);
+        text-align: center;
+    }
 
+    &__update {
+        color           : white;
+        margin-top      : 2.5%;
+        resize          : none;
+        width           : 90%;
+        height          : 65px;
+        background-color: rgba(141, 124, 108, 0.705);
+        border          : none;
+        border-radius   : 9px;
+        padding         : 10px;
+        outline         : none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
 
     &__quote {
         padding   : 10px;
@@ -47,5 +81,6 @@
         text-align: center;
         display   : block;
         text-align: left;
+        cursor    : pointer;
     }
 }

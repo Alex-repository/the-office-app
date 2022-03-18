@@ -6,6 +6,8 @@ export const prepareName = (firstName: string, lastName: string): string => `${f
 
 export const formattedUppercaseName = (value: string): string => value.charAt(0).toUpperCase() + value.slice(1);
 
+export const scrollToTop = () => window.scrollTo(0, 0);
+
 export const debounce = (fn: any, delay: any) => {
     let timeout: any = -1;
 

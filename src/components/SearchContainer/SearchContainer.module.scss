@@ -5,10 +5,8 @@
     align-items    : center;
     justify-content: center;
 
-    @media screen and (max-width: 600px) {
-        // display        : flex;
-        // align-items    : center;
-        // justify-content: center;
-        margin-left: 0;
+    @media screen and (max-width: 777px) {
+        flex-direction: column;
+        margin : 15px 0;
     }
 }

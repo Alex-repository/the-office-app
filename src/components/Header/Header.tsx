@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import DataContext from '../../contexts/dataContext';
 import { IHeader, typeView } from '../../models';
 import styles from './Header.module.scss';

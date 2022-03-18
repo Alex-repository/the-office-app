@@ -10,6 +10,11 @@
         -o-border-radius     : 9px;
         margin-left          : 1%;
         margin-right         : 1%;
+
+        @media screen and (max-width: 777px) {
+            flex-direction: column;
+            width         : 100%;
+        }
     }
 
     &__select {
@@ -28,6 +33,11 @@
 
         &:focus {
             outline: none;
+        }
+
+        @media screen and (max-width: 777px) {
+            height   : 40px;
+            font-size: 15px;
         }
     }
 }
