@@ -71,6 +71,8 @@ const ModalAdd = ({ onModalClose, addCharacter }: IModalAdd) => {
 
     const handleClose = () => onModalClose(false);
 
+    const handleDisable = (): boolean | undefined => !(firstName && lastName && dataSave) ? true : false;
+
     return (
         <Modal onModalClose={onModalClose}>
             <div className={styles.modalAdd__container}>
@@ -91,16 +93,24 @@ const ModalAdd = ({ onModalClose, addCharacter }: IModalAdd) => {
                         <h4 className={styles.modalAdd__title}>Add {addCharacter ? "quote" : "information"}:</h4>
                         {(addCharacter && dataSave)
                             ?
-                            <q className={styles.modalAdd__dataSave}>{dataSave}</q>
+                            (dataSave ? <q className={styles.modalAdd__dataSave}>{dataSave}</q> : '')
                             :
-                            <p className={styles.modalAdd__dataSave}>{dataSave}</p>
+                            (dataSave ? <p className={styles.modalAdd__dataSave}>{dataSave}</p> : '')
                         }
                         <textarea
                             value={dataSave}
                             onChange={handleData}
                             className={styles.modalAdd__add}
                         />
-                        <input type="submit" value="Submit" />
+                        <button
+                            disabled={handleDisable()}
+                            style={{ opacity: handleDisable() ? ".5" : "1" }}
+                            type="submit"
+                            value="Submit"
+                            className={styles.modalAdd__submit}
+                        >
+                            create
+                        </button >
                     </form>
                 </div>
                 <div
@@ -109,7 +119,7 @@ const ModalAdd = ({ onModalClose, addCharacter }: IModalAdd) => {
                 >
                 </div>
             </div>
-        </Modal>
+        </Modal >
     );
 }
 
