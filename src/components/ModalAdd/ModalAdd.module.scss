@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .modalAdd {
     &__container {
         height       : 90%;
@@ -46,12 +48,12 @@
         resize          : none;
         width           : 80%;
         height          : 100px;
-        background-color: rgba(141, 124, 108, 0.705);
+        background-color: $brown-input;
         border          : none;
         border-radius   : 9px;
         padding         : 10px;
         outline         : none;
-        color           : white;
+        color           : $standar-white;
 
         &::-webkit-scrollbar {
             display: none;
@@ -63,12 +65,12 @@
     }
 
     &__name {
-        color           : white;
+        color           : $standar-white;
         margin-top      : 2.5%;
         resize          : none;
         width           : 80%;
         height          : 50px;
-        background-color: rgba(141, 124, 108, 0.705);
+        background-color: $brown-input;
         border          : none;
         border-radius   : 9px;
         padding         : 10px;
@@ -86,7 +88,7 @@
     &__dataSave {
         padding   : 10px;
         font-size : 16px;
-        color     : black;
+        color     : $standar-black;
         z-index   : 1;
         text-align: center;
         display   : block;

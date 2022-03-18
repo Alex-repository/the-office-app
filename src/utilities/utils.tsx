@@ -35,3 +35,15 @@ export function sortByLastName(array: ICharacter[]) {
         return 0;
     })
 }
+
+export const selectSorce = (character: any): string => {
+    let source: string;
+    if (character.isCreated) {
+        source = `url("/assets/not_found.jpeg")`;
+    } else if (character.isCrewMember) {
+        source = `url("/assets/not_found.jpeg")`;
+    } else {
+        source = `url("/assets/${character.source}.webp")`;
+    }
+    return source;
+}

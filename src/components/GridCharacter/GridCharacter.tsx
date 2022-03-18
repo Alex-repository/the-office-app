@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { IGridCharacter } from '../../models';
-import { debounce } from '../../utilities/utils';
+import { debounce, selectSorce } from '../../utilities/utils';
 import ModalCharacter from '../ModalCharacter/ModalCharacter';
 import styles from './GridCharacter.module.scss';
 
@@ -28,12 +28,12 @@ function GridCharacter({ character, view }: IGridCharacter) {
     })
 
     const handlerModal = () => setIsModalOpen(!isModalOpen);
-
+   
     return (
         <>
             <div className={styles.gridCharacater__container}
                 ref={gridRef}
-                style={{ backgroundImage: (!character.isCreated && !character.isCrewMember) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
+                style={{ backgroundImage: selectSorce(character) }}
             >
                 <div
                     className={styles.gridCharacater__gradient}

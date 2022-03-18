@@ -1,10 +1,13 @@
+@import "../../styles/variables.scss";
+@import "../../styles/breakpoints.scss";
+
 .searchBar {
     &__container {
         position: relative;
         height  : 50px;
         width   : 70%;
 
-        @media screen and (max-width: 777px) {
+        @media screen and (max-width: $grid-mobile) {
             flex-direction: column;
             width         : 100%;
             margin-bottom : 5px;
@@ -13,13 +16,13 @@
 
     &__input {
         font-size            : inherit;
-        color                : black;
+        color                : $standar-black;
         padding-left         : 0.5rem;
         padding-right        : 1rem;
         height               : 2rem;
         width                : 100%;
         overflow-wrap        : break-word;
-        border               : 1px solid gray;
+        border               : 1px solid $standar-gray;
         word-wrap            : break-word;
         background-color     : transparent;
         border-radius        : 9px;
@@ -36,14 +39,14 @@
             outline         : none;
         }
 
-        @media screen and (max-width: 777px) {
+        @media screen and (max-width: $grid-mobile) {
             height   : 40px;
             font-size: 15px;
         }
     }
 
     &__predictive {
-        color                : gray;
+        color                : $standar-gray;
         z-index              : -1;
         outline              : none;
         cursor               : none;
@@ -56,7 +59,7 @@
         padding-right        : 1rem;
         height               : 2rem;
         width                : 100%;
-        border               : 1px solid gray;
+        border               : 1px solid $standar-gray;
         background-color     : transparent;
         border-radius        : 9px;
         -webkit-border-radius: 9px;
@@ -69,7 +72,7 @@
             outline         : none;
         }
 
-        @media screen and (max-width: 777px) {
+        @media screen and (max-width: $grid-mobile) {
             height   : 40px;
             font-size: 15px;
         }

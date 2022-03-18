@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import DataContext from '../../contexts/dataContext';
 import { IModalCharacter } from '../../models/index'
+import { selectSorce } from '../../utilities/utils';
 import Modal from '../Modal/Modal';
 import styles from './ModalCharacter.module.scss';
 
@@ -21,21 +22,11 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
         updateQuote(isUpdateInfo, dataToUpdate);
     }, [dataToUpdate])
 
-    // useEffect(() => {
-    //     !isUpdateInfo && setIsUpdateInfo(false)
-    // }, [isUpdateInfo])
-
-    // const handleUpdateField = (e: any) => {
-    //     console.log(e.target.value)
-    //     setDataToUpdate(e.target.value)
-    // }
-
     const handleClickOutside = (event: any) => ref.current && !ref.current.contains(event.target) && setIsUpdateInfo(false);
 
     const handleUpdate = (id: string) => setIsUpdateInfo(id);
 
     const handleUpdateQuote = (e: any) => setDataToUpdate(e.target.value);
-    // updateQuote(id, quote);
 
     const render = useCallback((character: any) => {
         return character.isCrewMember
@@ -65,7 +56,7 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
                 <div className={styles.modalCharacter__rightPanel}>
                     <img
                         className={styles.modalCharacter__image}
-                        style={{ backgroundImage: (!character.isCreated && (!character.isCrewMember || !!character?.source)) ? `url("/assets/${character.source}.webp")` : `url("/assets/not_found.jpeg")` }}
+                        style={{ backgroundImage: selectSorce(character) }}
                     />
                     <p className={styles.modalCharacter__description}>*Double click to edit a quote</p>
                 </div>
