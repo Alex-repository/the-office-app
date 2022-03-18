@@ -1,4 +1,4 @@
-##The Office demo app
+## The Office demo app
 
 ![Alt Text](https://i.giphy.com/media/DoCIC5Pxp57qg/giphy.webp)
 
