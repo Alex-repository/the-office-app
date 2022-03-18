@@ -5,10 +5,9 @@ import Modal from '../Modal/Modal';
 import styles from './ModalCharacter.module.scss';
 
 function ModalCharacter({ onModalClose, character }: IModalCharacter) {
-    const { findCharacterQuote } = useContext(DataContext);
-    const [isUpdateInfo, setIsUpdateInfo] = useState<string | boolean>(false)
-
     const ref = useRef<any>(null);
+    const { findCharacterQuote, updateQuote } = useContext(DataContext);
+    const [isUpdateInfo, setIsUpdateInfo] = useState<string | boolean>(false)
 
     useEffect(() => {
         document.addEventListener("click", handleClickOutside, true);
@@ -19,17 +18,9 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
 
     const handleClickOutside = (event: any) => ref.current && !ref.current.contains(event.target) && setIsUpdateInfo(false);
 
+    const handleUpdate = (id: string) => setIsUpdateInfo(id);
 
-    const handleUpdate = (id: any) => {
-        console.log('double click', id)
-        setIsUpdateInfo(id);
-
-    }
-
-    const handleUpdateQuote = (id: any) => {
-        console.log('double click', id)
-        setIsUpdateInfo(id);
-    }
+    const handleUpdateQuote = (e: any) => updateQuote(isUpdateInfo, e.target.value);
 
     const render = useCallback((character: any) => {
         return character.isCrewMember
@@ -37,10 +28,9 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
             <p>Role: {character.role} </p>
             :
             findCharacterQuote(character.id).sort().map((quote: any, index: number) => {
-                console.log(quote)
                 return isUpdateInfo && (quote.id === isUpdateInfo)
                     ?
-                    <textarea ref={ref} value={quote.quote} onChange={handleUpdateQuote} className={styles.modalCharacter__update} />
+                    <textarea key={index} ref={ref} value={quote.quote} onChange={handleUpdateQuote} className={styles.modalCharacter__update} />
                     :
                     <q key={index} onDoubleClick={() => handleUpdate(quote.id)} className={styles.modalCharacter__quote}>
                         {quote.quote}
