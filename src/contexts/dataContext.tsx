@@ -56,9 +56,11 @@ export function DataContextProvider({ children }: any) {
     const addQuote = (quote: IQuote) => setDataQuotes([...dataQuotes, quote]);
 
     const updateQuote = (id: string, value: string) => {
-        const quoteToUpdate = dataQuotes.find((quote: IQuote) => quote.id === id);
-        console.log(quoteToUpdate)
-        // setDataQuotes([...dataQuotes, { ...quoteToUpdate, quote: value }]);
+        if (id && value) {
+            let quoteToUpdate = dataQuotes.find((quote: IQuote) => quote.id === id);
+            quoteToUpdate.quote = value;
+            setDataQuotes(dataQuotes.map((quote: any) => quote.id === id ? quoteToUpdate : quote));
+        }
     }
 
     const findCharacterQuote = (id: any) => dataQuotes?.map((quote: any) => quote.characterId === id && quote).filter((x: any) => x);

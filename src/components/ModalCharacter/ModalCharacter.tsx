@@ -7,7 +7,8 @@ import styles from './ModalCharacter.module.scss';
 function ModalCharacter({ onModalClose, character }: IModalCharacter) {
     const ref = useRef<any>(null);
     const { findCharacterQuote, updateQuote } = useContext(DataContext);
-    const [isUpdateInfo, setIsUpdateInfo] = useState<string | boolean>(false)
+    const [isUpdateInfo, setIsUpdateInfo] = useState<string | boolean>(false);
+    const [dataToUpdate, setDataToUpdate] = useState('')
 
     useEffect(() => {
         document.addEventListener("click", handleClickOutside, true);
@@ -16,11 +17,25 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
         };
     }, []);
 
+    useEffect(() => {
+        updateQuote(isUpdateInfo, dataToUpdate);
+    }, [dataToUpdate])
+
+    // useEffect(() => {
+    //     !isUpdateInfo && setIsUpdateInfo(false)
+    // }, [isUpdateInfo])
+
+    // const handleUpdateField = (e: any) => {
+    //     console.log(e.target.value)
+    //     setDataToUpdate(e.target.value)
+    // }
+
     const handleClickOutside = (event: any) => ref.current && !ref.current.contains(event.target) && setIsUpdateInfo(false);
 
     const handleUpdate = (id: string) => setIsUpdateInfo(id);
 
-    const handleUpdateQuote = (e: any) => updateQuote(isUpdateInfo, e.target.value);
+    const handleUpdateQuote = (e: any) => setDataToUpdate(e.target.value);
+    // updateQuote(id, quote);
 
     const render = useCallback((character: any) => {
         return character.isCrewMember
@@ -30,13 +45,13 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
             findCharacterQuote(character.id).sort().map((quote: any, index: number) => {
                 return isUpdateInfo && (quote.id === isUpdateInfo)
                     ?
-                    <textarea key={index} ref={ref} value={quote.quote} onChange={handleUpdateQuote} className={styles.modalCharacter__update} />
+                    <textarea key={index} ref={ref} value={dataToUpdate || quote.quote} onChange={handleUpdateQuote} className={styles.modalCharacter__update} />
                     :
                     <q key={index} onDoubleClick={() => handleUpdate(quote.id)} className={styles.modalCharacter__quote}>
                         {quote.quote}
                     </q>
             })
-    }, [character, isUpdateInfo])
+    }, [character, isUpdateInfo, dataToUpdate])
 
     return (
         <Modal onModalClose={onModalClose}>
