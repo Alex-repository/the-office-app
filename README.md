@@ -33,3 +33,7 @@ https://user-images.githubusercontent.com/49765696/159338938-45935442-0fe6-4920-
 ## Adding and editing
 
 https://user-images.githubusercontent.com/49765696/159344278-f28a0247-5ac1-436c-8bf1-bc682ea5c4ed.mov
+
+## Adding new 
+
+Uploading Grabación de pantalla 2022-03-21 a la(s) 15.59.09.mov…
