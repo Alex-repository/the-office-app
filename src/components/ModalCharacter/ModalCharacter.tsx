@@ -50,7 +50,7 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
     };
 
     const handleKeyDown = (e: any, isUpdate?: boolean) => {
-        if (e.keyCode == 13 && e.shiftKey == false) {
+        if (e.keyCode === 13 && e.shiftKey === false) {
             e.preventDefault();
             isUpdate ? setIsUpdateInfo(false) : handleAddNewQuote();
         };
@@ -108,7 +108,10 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
                     }
                 </div>
                 <div className={styles.modalCharacter__rightPanel}>
-                    <img className={styles.modalCharacter__image} style={{ backgroundImage: selectSorce(character) }} />
+                    <img
+                        alt={character.name}
+                        className={styles.modalCharacter__image}
+                        style={{ backgroundImage: selectSorce(character) }} />
                     {!character.isCrewMember && <p className={styles.modalCharacter__description}>*Double click to edit a quote</p>}
                 </div>
             </div>

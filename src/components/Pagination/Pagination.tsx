@@ -67,6 +67,8 @@ const Pagination = ({ paginationLength, onPageChange }: IPagination) => {
         for (let i = 1; i <= pages.totalPages; i++) {
             render.push(
                 <a
+                    role="button"
+                    href={void (0)}
                     key={i}
                     onClick={() => paginationHandler(i)}
                     className={indexPosition === i ? styles.active : ''}

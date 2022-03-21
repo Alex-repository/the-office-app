@@ -114,7 +114,7 @@ const ModalAdd = ({ onModalClose, addCharacter }: IModalAdd) => {
                     </form>
                 </div>
                 <div className={styles.modalAdd__rightPanel}>
-                    <img className={styles.modalAdd__image} style={{ backgroundImage: `url("/assets/not_found.jpeg")` }} />
+                    <img alt='not_found' className={styles.modalAdd__image} style={{ backgroundImage: `url("/assets/not_found.jpeg")` }} />
                 </div>
             </div>
         </Modal >
