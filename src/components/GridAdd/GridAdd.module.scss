@@ -22,14 +22,14 @@
         &::after {
             content          : "";
             position         : absolute;
-            top              : calc(50% - 80px);
-            right            : calc(50% - 80px);
+            top              : calc(50% - 130px);
+            right            : calc(50% - 130px);
             background-image : url("../../../public/assets/add_icon.png");
             background-repeat: no-repeat;
             background-size  : cover;
-            opacity          : .5;
-            height           : 160px;
-            width            : 160px;
+            opacity          : .3;
+            height           : 260px;
+            width            : 260px;
         }
 
         @media screen and (max-width: 600px) {

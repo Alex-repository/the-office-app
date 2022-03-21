@@ -20,7 +20,7 @@ function Header({ onChangeView }: IHeader) {
     };
 
     return (
-        <div className={styles.header__container}>
+        <header className={styles.header__container}>
             <button
                 className={`${styles.header__option} ${styles[(viewOption === "crew") ? "header__option-disable" : ""]}`}
                 onClick={() => handlerCrewOption()}
@@ -33,7 +33,7 @@ function Header({ onChangeView }: IHeader) {
             >
                 Character
             </button>
-        </div>
+        </header>
     );
 }
 

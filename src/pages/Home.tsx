@@ -6,6 +6,7 @@ import Header from '../components/Header/Header';
 import ListContainer from '../components/ListContainer/ListContainer';
 import SearchContainer from '../components/SearchContainer/SearchContainer';
 import SearchOption from '../components/SearchOption/SearchOption';
+import Footer from '../components/Footer/Footer';
 import styles from './App.module.scss';
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
         <SearchOption onSearchOrder={setOrderBy} />
       </SearchContainer>
       <ListContainer filterBy={filterBy} orderBy={orderBy} view={view}/>
+      <Footer/>
     </div>
   )
 }
