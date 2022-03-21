@@ -109,7 +109,6 @@ function ModalCharacter({ onModalClose, character }: IModalCharacter) {
                 </div>
                 <div className={styles.modalCharacter__rightPanel}>
                     <img
-                        alt={character.name}
                         className={styles.modalCharacter__image}
                         style={{ backgroundImage: selectSorce(character) }} />
                     {!character.isCrewMember && <p className={styles.modalCharacter__description}>*Double click to edit a quote</p>}
