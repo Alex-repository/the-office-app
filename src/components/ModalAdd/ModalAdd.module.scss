@@ -36,9 +36,23 @@
     }
 
     &__rightPanel {
+        display       : flex;
+        flex-direction: column;
+        height        : 90%;
+        width         : 40%;
 
-        height             : 90%;
-        width              : 40%;
+        @media screen and (max-width: $grid-mobile) {
+            width          : 100%;
+            height        : 55%;
+            align-items    : center;
+        }
+
+    }
+
+    &__image {
+        height: 100%;
+        width : 100%;
+
         background-position: center;
         background-repeat  : no-repeat;
         background-size    : cover;
@@ -48,8 +62,9 @@
         -moz-box-shadow    : 12px 10px 10px -12px rgba(0, 0, 0, 0.71);
 
         @media screen and (max-width: $grid-mobile) {
-            width : 100%;
-            height: 50%;
+            background-position: center 25%;
+            width              : 60%;
+            height             : 85%;
         }
     }
 
@@ -62,6 +77,8 @@
         resize          : none;
         width           : 80%;
         height          : 100px;
+        max-height      : 65px;
+        height          : 35%;
         background-color: $brown-input;
         border          : none;
         border-radius   : 9px;
@@ -78,8 +95,7 @@
         }
 
         @media screen and (max-width: $grid-mobile) {
-            width : 100%;
-            height: 50px;
+            width    : 100%;
         }
     }
 
@@ -88,7 +104,7 @@
         margin-top      : 2.5%;
         resize          : none;
         width           : 80%;
-        height          : 50px;
+        height          : 40px;
         background-color: $brown-input;
         border          : none;
         border-radius   : 9px;
@@ -109,13 +125,21 @@
     }
 
     &__dataSave {
-        padding   : 10px;
-        font-size : 16px;
-        color     : $standar-black;
-        z-index   : 1;
-        text-align: center;
-        display   : block;
-        text-align: left;
+        width        : 350px;
+        white-space  : nowrap;
+        overflow     : hidden;
+        text-overflow: ellipsis;
+        padding      : 10px;
+        font-size    : 16px;
+        color        : $standar-black;
+        z-index      : 1;
+        text-align   : center;
+        display      : block;
+        text-align   : left;
+
+        @media screen and (max-width: $grid-mobile) {
+            width: 250px;
+        }
     }
 
     &__submit {

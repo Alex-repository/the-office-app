@@ -3,9 +3,8 @@
 
 .header {
     &__container {
-        height: 100px;
-        width : 80%;
-
+        height         : 100px;
+        width          : 80%;
         display        : flex;
         justify-content: space-around;
         align-items    : center;
@@ -17,10 +16,6 @@
         :last-child {
             border-left: 1px solid $standar-black;
         }
-
-        // @media screen and (max-width: $grid-mobile) {
-        //    flex-direction: column;
-        // }
     }
 
     &__option {
@@ -31,15 +26,15 @@
         cursor          : pointer;
         background-color: transparent;
         border-bottom   : 1px solid $standar-black;
-
+        opacity: .5;
+        
         @media screen and (max-width: $mobile-portrait-bk-small) {
             font-size: 24px;
         }
-
+        
         &-disable {
             border: none;
-
-            opacity: .5;
+            opacity: 1;
             cursor : default;
         }
     }

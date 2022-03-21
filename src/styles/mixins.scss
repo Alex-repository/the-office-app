@@ -9,11 +9,13 @@
 
 @mixin placeholder-style {
     opacity       : 0.55;
-    color         : $gray;
-    font-family   : Avenir;
-    font-size     : 15px;
+    color         : $standar-white;
+    font-size     : 16px;
     letter-spacing: 0;
     line-height   : 20px;
+    @media screen and (max-width: $grid-mobile) {
+        font-size : 12px;
+    }
 }
 
 @mixin placeholder-input {

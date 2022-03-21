@@ -48,7 +48,6 @@ const Pagination = ({ paginationLength, onPageChange }: IPagination) => {
         let startIndex = (currentPage - 1) * pageSize;
         let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
         let pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
-        //add here return of max page size based of array lenght
         return {
             totalItems: totalItems,
             currentPage: currentPage,

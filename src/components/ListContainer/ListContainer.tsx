@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from 'react';
 import DataContext from '../../contexts/dataContext';
-import { ICharacter, IListContainer, IPropCharacter } from '../../models';
+import { IListContainer, IPropCharacter } from '../../models';
 import { sortByFirstName, sortByLastName } from '../../utilities/utils';
 import ElementPlaceholder from '../ElementPlaceholder/ElementPlaceholder';
 import GridAdd from '../GridAdd/GridAdd';
@@ -45,7 +45,7 @@ function ListContainer({ filterBy, orderBy, view }: IListContainer) {
             renderList.push(<GridAdd key={'add'} view={view} />)
             return renderList
         } else {
-            return Array.apply(null, Array(5)).map((_, i) => <ElementPlaceholder key={i} />)
+            return Array.apply(null, Array(6)).map((_, i) => <ElementPlaceholder key={i} />)
         }
     }, [pagePosition, orderBy, dataCharacters, filterBy, dataCrew, view]);
 
@@ -54,7 +54,7 @@ function ListContainer({ filterBy, orderBy, view }: IListContainer) {
             <div className={styles.container}>
                 {paginationRender()}
             </div>
-            <Pagination paginationLength={dataCharacters?.length} onPageChange={paginationHandler} />
+            <Pagination paginationLength={view === 'characters' ? dataCharacters?.length : dataCrew?.length} onPageChange={paginationHandler} />
         </>
     );
 }

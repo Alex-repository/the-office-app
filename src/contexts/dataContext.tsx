@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createContext, useState, useEffect, useLayoutEffect } from 'react';
+import { createContext, useState, useLayoutEffect } from 'react';
 import { IQuote } from '../models';
 import { createAddaptedCharacter, createAddaptedCrew, createAddaptedQuote } from '../utilities/adapters';
 export const DataContext = createContext<any>(null);
