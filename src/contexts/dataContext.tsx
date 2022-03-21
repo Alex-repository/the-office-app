@@ -21,10 +21,8 @@ export function DataContextProvider({ children }: any) {
             setDataQuotes(createAddaptedQuote(respQuote.data.data));
             setDataCharacters(createAddaptedCharacter(resp.data.data));
             let firstNameList = resp.data.data.map(({ firstname }: any) => firstname)
-            // TODO: filter by last name
-            // let lastNameList = resp.data.data.map(({ lastname }: any) => lastname)
-            // setCharactersNames([...firstNameList, ...lastNameList]);
-            setCharactersNames(firstNameList);
+            let lastNameList = resp.data.data.map(({ lastname }: any) => lastname)
+            setCharactersNames([...firstNameList, ...lastNameList]);
         } catch (err) {
             console.error('Error fetching data: ', err);
         }
@@ -34,13 +32,20 @@ export function DataContextProvider({ children }: any) {
         try {
             const response = await axios.get('https://officeapi.dev/api/crew/');
             setDataCrew(createAddaptedCrew(response.data.data));
-            setCharactersNames(response.data.data.map(({ name }: any) => name.split(" ")[0]));
+            let firstNameList = response.data.data.map(({ name }: any) => name.split(" ")[0])
+            let lastNameList = response.data.data.map(({ name }: any) => name.split(" ")[1])
+            setCharactersNames([...firstNameList, ...lastNameList]);
         } catch (error) {
             console.error('Error fetching crew: ', error);
         }
     }
 
-    const sendGetCharacters = () => setCharactersNames(dataCharacters.map(({ firstName }: any) => firstName));
+    const sendGetCharacters = () =>{
+        let firstNameList = dataCharacters.map(({ firstname }: any) => firstname)
+        let lastNameList = dataCharacters.map(({ lastname }: any) => lastname)
+        setCharactersNames([...firstNameList, ...lastNameList]);
+        setCharactersNames(dataCharacters.map(({ firstName }: any) => firstName));
+    } 
 
     const getCrew = async () => {
         if (dataCrew) return dataCrew

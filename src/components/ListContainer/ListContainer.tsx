@@ -26,7 +26,9 @@ function ListContainer({ filterBy, orderBy, view }: IListContainer) {
         const renderList: any = [];
         if (dataCharacters && view === "characters") {
             if (!!filterBy) {
-                const filteredList = dataCharacters.find((character: IPropCharacter) => filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase());
+                const filteredList = dataCharacters.find((character: IPropCharacter) => {
+                    return (filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase() || filterBy.toLocaleLowerCase() === character.lastName.toLocaleLowerCase() )
+                });
                 return filteredList && <GridCharacter character={filteredList} view={view} />
             }
             renderList.push(preparePagination(dataCharacters, pagePosition).map((character: any) => {
@@ -36,7 +38,10 @@ function ListContainer({ filterBy, orderBy, view }: IListContainer) {
             return renderList
         } else if (dataCrew && view === "crew") {
             if (!!filterBy) {
-                const filteredList = dataCrew.find((character: IPropCharacter) => filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase());
+                const filteredList = dataCrew.find((character: IPropCharacter) => {
+                    return (filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase() || filterBy.toLocaleLowerCase() === character.lastName.toLocaleLowerCase() )
+                });
+                // const filteredList = dataCrew.find((character: IPropCharacter) => filterBy.toLocaleLowerCase() === character.firstName.toLocaleLowerCase());
                 return filteredList && <GridCharacter character={filteredList} view={view} />
             }
             renderList.push(preparePagination(dataCrew, pagePosition).map((character: any) => {
